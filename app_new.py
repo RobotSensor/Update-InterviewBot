@@ -106,7 +106,7 @@ if st.session_state.setup_complete and not st.session_state.feedback_shown and n
     client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
     if "openai_model" not in st.session_state:
-        st.session_state["openai_model"] = "gpt-4o-mini"
+        st.session_state["openai_model"] = "gpt-5-nano"  #"gpt-4o-mini"
 
     # the if not check if the  message is empty
     if not st.session_state.messages:
@@ -164,7 +164,7 @@ if st.session_state.feedback_shown:
     
     feedback_client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
     feedback_completion = feedback_client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="gpt-5-nano",      #"gpt-4o-mini",
         messages=[
             {"role": "system", "content": """You are a helpful tool that provides feedback on an interviewee performance.
              Before the Feedback give a score of 1 to 10.
